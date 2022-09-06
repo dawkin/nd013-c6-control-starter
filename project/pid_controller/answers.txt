@@ -1,7 +1,29 @@
 // Answer the following questions:
 
 // Add the plots to your report and explain them (describe what you see)
+Steer graph:
+	On the steer error/steering output graph we can observe that that steering output react quickly to the steering error. 
+    
+Throttle graph:
+	The initial error drop quickly and then the error starts to get smaller and smaller in terms of absolute value. The output is rising slowly compare the error.
+    The peak we observe during the slow increase of the throttle is probably cause by a computational error, which is probably comming from the derivative parameter.
+    
 // What is the effect of the PID according to the plots, how each part of the PID affects the control command?
+Proportinal term directly take as input the error and thus apply a correction in opposition to this error.
+Derivative term is computed based on the error evolution and act like a low pass filter reducing high variation in the system.
+Integral term is here to avoid constant small error in system by summing all the residual errors over time. This parameter should be used with caution and also should stay small to preserve a stable response.
 // How would you design a way to automatically tune the PID parameters?
+In automation a PID is generaly combine with a step response of the model. This step response is a great base to start working on a control loop design. Then after the step repsonse a dichotomic search around this point and certain number of iteration would give a satisfying result.
 // PID controller is a model free controller, i.e. it does not use a model of the car. Could you explain the pros and cons of this type of controller?
+pros:
+	easy to implement
+	do not require a lot of computation
+    produce a working control loop with biased system
+cons:
+	Isn't working well with high delay system
+    Do not take into consideration the specificity of the system
+    
 // (Optional) What would you do to improve the PID controller?
+
+Increase sampling rate in the control loop.
+Study the system with a step response and gest a proper starting point instead of my intuition.

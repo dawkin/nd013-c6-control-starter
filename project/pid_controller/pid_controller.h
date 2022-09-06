@@ -8,27 +8,27 @@
 #define PID_CONTROLLER_H
 
 class PID {
-public:
 
-   /**
-   * TODO: Create the PID class
-   **/
-
+private:
     /*
     * Errors
     */
-
+	double _cte, _sum_cte, _prev_cte;
     /*
     * Coefficients
     */
+  	double _kp, _ki, _kd;
 
     /*
     * Output limits
     */
-  
+  	double _output_lim_max, _output_lim_min;
     /*
     * Delta time
     */
+  	double _delta_time;
+
+public:
 
     /*
     * Constructor
